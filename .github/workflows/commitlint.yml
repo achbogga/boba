@@ -19,7 +19,10 @@ jobs:
       - run: npm install
       - run: |
           if [ "${{ github.event_name }}" = "pull_request" ]; then
-            npx commitlint --from "${{ github.event.pull_request.base.sha }}" --to "${{ github.sha }}" --verbose
+            npx commitlint \
+              --from "${{ github.event.pull_request.base.sha }}" \
+              --to "${{ github.sha }}" \
+              --verbose
           else
             BEFORE="${{ github.event.before }}"
             if [ "${BEFORE}" = "0000000000000000000000000000000000000000" ]; then
@@ -27,4 +30,3 @@ jobs:
             fi
             npx commitlint --from "${BEFORE}" --to "${{ github.sha }}" --verbose
           fi
-

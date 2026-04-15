@@ -9,7 +9,9 @@ ensure_trunk() {
     return
   fi
 
-  curl https://get.trunk.io -fsSL | bash
+  mkdir -p "${HOME}/.local/bin"
+  curl -fsSL https://trunk.io/releases/trunk -o "${HOME}/.local/bin/trunk"
+  chmod +x "${HOME}/.local/bin/trunk"
   export PATH="${HOME}/.local/bin:${PATH}"
 }
 
@@ -17,7 +19,8 @@ cd "${ROOT_DIR}"
 ensure_trunk
 uv sync --dev
 npm install
+export PATH="${ROOT_DIR}/.venv/bin:${ROOT_DIR}/node_modules/.bin:${HOME}/.local/bin:${PATH}"
+trunk install
 uv run pre-commit install --hook-type pre-commit --hook-type commit-msg
 
 echo "Development environment bootstrapped."
-

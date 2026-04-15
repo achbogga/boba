@@ -12,4 +12,3 @@ The maintainer is responsible for:
 As the project matures, governance can expand to additional maintainers and a
 documented decision process. Public API changes, license changes, and automation
 boundary changes should be captured in ADRs.
-

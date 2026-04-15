@@ -57,4 +57,3 @@ Use Developer Certificate of Origin sign-off on commits:
 ```text
 git commit -s
 ```
-

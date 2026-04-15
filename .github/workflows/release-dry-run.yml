@@ -16,5 +16,7 @@ jobs:
         with:
           node-version: "22"
       - run: npm install
-      - run: npx commitlint --from "$(git merge-base origin/main HEAD)" --to HEAD --verbose
+      - run:
+          npx commitlint --from "$(git merge-base origin/main HEAD)" --to HEAD
+          --verbose
       - run: echo "Release dry run passed."

@@ -12,4 +12,3 @@ Instead:
 
 The project will acknowledge reports promptly and coordinate disclosure once a
 fix or mitigation is available.
-

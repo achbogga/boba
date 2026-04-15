@@ -9,4 +9,3 @@ The supported local workflow uses:
 - Docker for support services and container builds
 
 Run `./scripts/bootstrap-dev.sh` after cloning the repository.
-

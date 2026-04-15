@@ -16,4 +16,3 @@ body:
       description: Describe the change and expected outcome.
     validations:
       required: true
-

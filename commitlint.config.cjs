@@ -6,4 +6,3 @@ module.exports = {
     "scope-case": [2, "always", "kebab-case"],
   },
 };
-

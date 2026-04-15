@@ -16,4 +16,3 @@ body:
       description: Provide steps, configs, and logs.
     validations:
       required: true
-

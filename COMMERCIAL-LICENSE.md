@@ -11,4 +11,3 @@ license.
 
 To discuss a commercial license, open a GitHub Discussion or contact the
 maintainer through the repository profile.
-

@@ -16,4 +16,3 @@ maintainer is responsible for reviewing reports and taking appropriate action.
 
 Project maintainers may remove comments, close discussions, or block access when
 behavior materially harms the community or the project.
-

@@ -22,9 +22,19 @@ jobs:
       - uses: astral-sh/setup-uv@v5
       - run: npm install
       - run: uv sync --dev
-      - uses: trunk-io/trunk-action@v1
+      - run: |
+          mkdir -p "$HOME/.local/bin"
+          curl -fsSL https://trunk.io/releases/trunk -o "$HOME/.local/bin/trunk"
+          chmod +x "$HOME/.local/bin/trunk"
+      - run:
+          export
+          PATH="$PWD/.venv/bin:$PWD/node_modules/.bin:$HOME/.local/bin:$PATH" &&
+          trunk install
+      - run:
+          export
+          PATH="$PWD/.venv/bin:$PWD/node_modules/.bin:$HOME/.local/bin:$PATH" &&
+          trunk check --all --no-progress
       - run: uv run pre-commit run --all-files
       - run: uv run pytest
       - run: uv run mypy
       - run: uv run mkdocs build --strict
-

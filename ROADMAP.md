@@ -19,4 +19,3 @@
 - add a Kubernetes controller
 - add replay-driven policy evaluation
 - add managed/commercial capabilities beyond the source-available core
-

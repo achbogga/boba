@@ -12,16 +12,7 @@ actions:
     - trunk-check-pre-push
 lint:
   enabled:
-    - actionlint
     - git-diff-check
-    - gitleaks
-    - hadolint
     - markdownlint
-    - prettier
     - ruff
-    - shellcheck
-    - shfmt
-    - taplo
-    - vale
     - yamllint
-

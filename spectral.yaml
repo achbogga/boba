@@ -6,4 +6,3 @@ rules:
     severity: warn
   info-contact:
     severity: off
-
