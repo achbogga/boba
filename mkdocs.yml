@@ -20,6 +20,7 @@ nav:
       - Scheduling and autoscaling: why-boba-matters/scheduling-and-autoscaling.md
       - GPU and heterogeneous pipelines: why-boba-matters/gpu-and-heterogeneity.md
       - Fundamental limitations: why-boba-matters/fundamental-limitations.md
+      - How to help: why-boba-matters/how-to-help.md
   - Plan:
       - Overview: plan/overview.md
   - Architecture:

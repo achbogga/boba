@@ -40,6 +40,24 @@ classes of operational pain:
 This repo is our attempt to build an open-source control plane that makes those
 problems more automatic, more explainable, and more replayable.
 
+## If This Sounds Familiar, Boba Is Probably For You
+
+You are in Boba’s target zone if your team has already experienced one or more
+of these failure signatures:
+
+- Ray Data pipelines that spill hard enough to turn into disk-pressure or
+  non-responsiveness incidents
+- joins, shuffles, or actor-heavy stages that become
+  `PENDING_NODE_ASSIGNMENT` problems on KubeRay
+- GPU pipelines where the first stage takes most of the cluster and starves the
+  rest of the workflow
+- scale-down behavior that looks correct on paper but leaves expensive workers
+  alive after the useful work is done
+- a constant operational loop of changing `override_num_blocks`, concurrency,
+  worker shape, or resource bundles by hand
+
+That is the operator reality Boba is targeting.
+
 ## The Hard-Evidence Summary
 
 If you want the deep dive, read the child pages:
@@ -48,6 +66,13 @@ If you want the deep dive, read the child pages:
 - [Scheduling and autoscaling evidence](scheduling-and-autoscaling.md)
 - [GPU and heterogeneous pipeline evidence](gpu-and-heterogeneity.md)
 - [Fundamental platform limitations](fundamental-limitations.md)
+- [How contributors and design partners can help](how-to-help.md)
+
+If you want the fastest path through the repo after this page, continue with:
+
+- the [evidence register](../evidence/ray-data-pain-points.md)
+- the [validation matrix](../benchmarks/validation-matrix.md)
+- the [plan overview](../plan/overview.md)
 
 The short version is:
 
@@ -136,6 +161,14 @@ We also want design partners who are already operating:
 - spill-sensitive or shuffle-heavy pipelines
 - multi-stage batch inference pipelines
 
+The most helpful design partners can bring concrete evidence such as:
+
+- a workload graph or simplified pipeline outline
+- cluster shape and node-group details
+- failure symptoms, logs, or screenshots
+- metrics showing where the workload stalls, spills, or over-allocates
+- examples of the knobs people have already tried without confidence
+
 ## What We Are Not Looking For
 
 We do not want to turn Boba into:
@@ -165,5 +198,16 @@ decision-making over those primitives.
 That is the product thesis behind Boba.
 
 If that thesis matches the problems you are seeing in production or in serious
-experimentation, read the evidence pages above and get in touch. The repo needs
-contributors who want to build a real control plane, not just a nicer wrapper.
+experimentation, the best next steps are practical:
+
+- open a discussion at
+  [github.com/achbogga/boba/discussions](https://github.com/achbogga/boba/discussions)
+  if you want to share a workload, failure mode, or design critique
+- open an issue at
+  [github.com/achbogga/boba/issues](https://github.com/achbogga/boba/issues)
+  if you have a specific bug, missing benchmark case, or doc gap
+- read [How contributors and design partners can help](how-to-help.md) if you
+  want a more concrete map of where to plug in
+
+The repo needs contributors who want to build a real control plane, not just a
+nicer wrapper.
