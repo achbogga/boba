@@ -1,0 +1,30 @@
+name: Commitlint
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  commitlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm install
+      - run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            npx commitlint --from "${{ github.event.pull_request.base.sha }}" --to "${{ github.sha }}" --verbose
+          else
+            BEFORE="${{ github.event.before }}"
+            if [ "${BEFORE}" = "0000000000000000000000000000000000000000" ]; then
+              BEFORE="$(git rev-list --max-parents=0 HEAD)"
+            fi
+            npx commitlint --from "${BEFORE}" --to "${{ github.sha }}" --verbose
+          fi
+

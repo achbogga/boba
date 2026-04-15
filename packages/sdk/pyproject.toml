@@ -1,0 +1,23 @@
+[project]
+name = "boba"
+version = "0.1.0"
+description = "Python SDK, planner, and CLI for Boba."
+readme = "../../README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "pydantic>=2.11.3",
+  "pyyaml>=6.0.2",
+  "rich>=14.0.0",
+  "typer>=0.15.3",
+]
+
+[project.scripts]
+boba = "boba.cli:app"
+
+[build-system]
+requires = ["hatchling>=1.27.0"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/boba"]
+

@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: astral-sh/setup-uv@v5
+      - run: npm install
+      - run: uv sync --dev
+      - uses: trunk-io/trunk-action@v1
+      - run: uv run pre-commit run --all-files
+      - run: uv run pytest
+      - run: uv run mypy
+      - run: uv run mkdocs build --strict
+

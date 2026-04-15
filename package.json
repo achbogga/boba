@@ -1,0 +1,17 @@
+{
+  "name": "boba-repo-tooling",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Repository-local tooling for commit conventions and documentation hygiene.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "commitlint": "commitlint"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.5.0",
+    "@commitlint/config-conventional": "^20.0.0"
+  }
+}
+

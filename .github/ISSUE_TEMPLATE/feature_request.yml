@@ -1,0 +1,19 @@
+name: Feature request
+description: Propose a feature or improvement.
+title: "feat: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    attributes:
+      label: Problem
+      description: What user pain should this solve?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Proposal
+      description: Describe the change and expected outcome.
+    validations:
+      required: true
+

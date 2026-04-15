@@ -1,0 +1,29 @@
+site_name: Boba
+site_description: Self-driving Ray clusters, powered by Boba.
+repo_url: https://github.com/achbogga/boba
+repo_name: achbogga/boba
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - content.code.copy
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences
+nav:
+  - Home: index.md
+  - Plan:
+      - Overview: plan/overview.md
+  - Architecture:
+      - System: architecture/system.md
+  - Evidence:
+      - Ray Data pain points: evidence/ray-data-pain-points.md
+  - Benchmarks:
+      - Validation matrix: benchmarks/validation-matrix.md
+  - Contributing:
+      - Dev environment: contributing/dev-environment.md
+  - ADRs:
+      - ADR-0001: adrs/ADR-0001-source-available-license.md
+

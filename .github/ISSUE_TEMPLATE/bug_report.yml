@@ -1,0 +1,19 @@
+name: Bug report
+description: Report a confirmed bug or regression.
+title: "bug: "
+labels:
+  - bug
+body:
+  - type: textarea
+    attributes:
+      label: Summary
+      description: What happened and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Reproduction
+      description: Provide steps, configs, and logs.
+    validations:
+      required: true
+

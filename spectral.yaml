@@ -1,0 +1,9 @@
+extends:
+  - spectral:oas
+
+rules:
+  operation-operationId-valid-in-url:
+    severity: warn
+  info-contact:
+    severity: off
+

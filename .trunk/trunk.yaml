@@ -1,0 +1,27 @@
+version: 0.1
+cli:
+  version: 1.22.9
+plugins:
+  sources:
+    - id: trunk
+      ref: v1.6.4
+      uri: https://github.com/trunk-io/plugins
+actions:
+  enabled:
+    - trunk-fmt-pre-commit
+    - trunk-check-pre-push
+lint:
+  enabled:
+    - actionlint
+    - git-diff-check
+    - gitleaks
+    - hadolint
+    - markdownlint
+    - prettier
+    - ruff
+    - shellcheck
+    - shfmt
+    - taplo
+    - vale
+    - yamllint
+

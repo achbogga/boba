@@ -1,0 +1,20 @@
+minimum_pre_commit_version: "3.7.0"
+default_install_hook_types:
+  - pre-commit
+  - commit-msg
+repos:
+  - repo: local
+    hooks:
+      - id: trunk-check
+        name: trunk check
+        entry: ./scripts/run-trunk-check.sh
+        language: system
+        pass_filenames: false
+        stages:
+          - pre-commit
+      - id: commitlint
+        name: commitlint
+        entry: npx commitlint --edit
+        language: system
+        stages:
+          - commit-msg
