@@ -1,0 +1,8 @@
+.git/
+.latte/
+.venv/
+node_modules/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+site/

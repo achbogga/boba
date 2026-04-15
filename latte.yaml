@@ -1,0 +1,37 @@
+name: boba
+namespace: boba
+rulesFiles:
+  - AGENTS.md
+context:
+  include:
+    - README.md
+    - AGENTS.md
+    - docs/**/*.md
+    - benchmarks/**/*.yaml
+    - examples/**/*.yaml
+    - packages/**/*.py
+    - services/**/*.py
+  maxFiles: 28
+  maxCharsPerFile: 4000
+ignore:
+  - .git/**
+  - .latte/**
+  - .venv/**
+  - node_modules/**
+  - .mypy_cache/**
+  - .pytest_cache/**
+  - .ruff_cache/**
+exports:
+  - docs/**/*.md
+providers:
+  default: codex
+  codex:
+    command: codex
+    argsTemplate:
+      - "{{prompt_file}}"
+  claude:
+    command: claude
+    argsTemplate:
+      - "--resume"
+      - "{{session_id}}"
+      - "{{prompt_file}}"
