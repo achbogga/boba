@@ -4,6 +4,15 @@ The initial prototype targets recurring pain reported by Ray Data users and by
 Ray maintainers. This evidence register ties each pain point to a benchmark
 scenario and a Boba rule family.
 
+For the longer argument about why these pain points justify a separate control
+plane, see:
+
+- [Why Boba Matters: A Call For Core Contributors](../why-boba-matters/index.md)
+- [Memory and spill evidence](../why-boba-matters/memory-and-spill.md)
+- [Scheduling and autoscaling evidence](../why-boba-matters/scheduling-and-autoscaling.md)
+- [GPU and heterogeneous pipeline evidence](../why-boba-matters/gpu-and-heterogeneity.md)
+- [Fundamental platform limitations](../why-boba-matters/fundamental-limitations.md)
+
 ## Evidence register
 
 | Pain point                                                                                  | Source                                                                                                                                                                                                           | Signal for Boba                                                                                       | Scenario                                   |

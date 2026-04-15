@@ -14,6 +14,12 @@ markdown_extensions:
   - pymdownx.superfences
 nav:
   - Home: index.md
+  - Why Boba Matters:
+      - Overview: why-boba-matters/index.md
+      - Memory and spill: why-boba-matters/memory-and-spill.md
+      - Scheduling and autoscaling: why-boba-matters/scheduling-and-autoscaling.md
+      - GPU and heterogeneous pipelines: why-boba-matters/gpu-and-heterogeneity.md
+      - Fundamental limitations: why-boba-matters/fundamental-limitations.md
   - Plan:
       - Overview: plan/overview.md
   - Architecture:
