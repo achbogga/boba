@@ -26,4 +26,3 @@ nav:
       - Dev environment: contributing/dev-environment.md
   - ADRs:
       - ADR-0001: adrs/ADR-0001-source-available-license.md
-

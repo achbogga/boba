@@ -4,11 +4,7 @@ version = "0.1.0"
 description = "FastAPI service for the Boba planner."
 readme = "../../README.md"
 requires-python = ">=3.11"
-dependencies = [
-  "boba",
-  "fastapi>=0.115.12",
-  "uvicorn>=0.34.1",
-]
+dependencies = ["boba", "fastapi>=0.115.12", "uvicorn>=0.34.1"]
 
 [build-system]
 requires = ["hatchling>=1.27.0"]
@@ -16,4 +12,3 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/boba_api"]
-

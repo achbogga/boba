@@ -1,0 +1,32 @@
+name: etl-gpu-inference
+workload_class: etl-gpu-inference
+dataset:
+  format: parquet
+  input_gib: 240
+  average_row_kib: 64
+  file_count: 2400
+  block_size_mib: 256
+stages:
+  - name: ingest
+    kind: ingest
+    parallelism: 48
+    concurrency: 24
+    cpu_per_worker: 2
+    memory_gib_per_worker: 4
+    working_set_per_worker_gib: 3
+  - name: featurize
+    kind: transform
+    parallelism: 40
+    concurrency: 20
+    cpu_per_worker: 3
+    memory_gib_per_worker: 6
+    working_set_per_worker_gib: 5
+  - name: embed
+    kind: inference
+    accelerator: gpu
+    parallelism: 8
+    concurrency: 8
+    cpu_per_worker: 6
+    memory_gib_per_worker: 12
+    gpu_per_worker: 1
+    working_set_per_worker_gib: 10

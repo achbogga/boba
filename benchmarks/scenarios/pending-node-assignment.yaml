@@ -1,0 +1,9 @@
+name: pending-node-assignment
+description:
+  Model a memory-heavy join stage that cannot fit existing node pools.
+workload_file: ../../examples/workloads/pending-node-assignment.workload.yaml
+cluster_file: ../../examples/workloads/local-kind.cluster.yaml
+expected_findings:
+  - sched.join.unschedulable
+notes:
+  - Exercises preflight rejection for impossible join shapes before runtime.

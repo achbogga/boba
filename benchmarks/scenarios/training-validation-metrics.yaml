@@ -1,0 +1,9 @@
+name: training-validation-metrics
+description:
+  Training-adjacent data ingest, validation inference, and metrics ETL.
+workload_file: ../../examples/workloads/training-validation-metrics.workload.yaml
+cluster_file: ../../examples/workloads/heterogeneous-gpu.cluster.yaml
+expected_findings:
+  - autoscaling.requested_resources_mode
+notes:
+  - Keeps training internals out of scope while exercising GPU ingest planning.

@@ -14,4 +14,3 @@ Convert releases to Apache-2.0 on the declared change date.
 
 This supports a freemium commercial path without inventing a custom license,
 while still committing to an eventual open-source conversion.
-

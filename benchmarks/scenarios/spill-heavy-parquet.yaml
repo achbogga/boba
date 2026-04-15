@@ -1,0 +1,9 @@
+name: spill-heavy-parquet
+description: Stress a parquet-heavy pipeline against small object-store memory.
+workload_file: ../../examples/workloads/spill-heavy.workload.yaml
+cluster_file: ../../examples/workloads/local-kind.cluster.yaml
+expected_findings:
+  - spill.block_size_too_large
+  - spill.total_working_set
+notes:
+  - Exercises object-store pressure and spill heuristics.

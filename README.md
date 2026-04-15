@@ -6,7 +6,7 @@
 ![License](https://img.shields.io/badge/license-BSL%201.1-blue)
 ![Python](https://img.shields.io/badge/python-3.11%2B-3776AB)
 
-*Self-driving Ray clusters, powered by Boba.*
+_Self-driving Ray clusters, powered by Boba._
 
 Boba is a source-available control plane for Ray workloads running on
 heterogeneous Kubernetes-backed infrastructure. It helps teams plan, validate,
@@ -14,9 +14,9 @@ shape, and tune Ray batch data and ML workloads before they fail expensively.
 
 ## License model
 
-Boba is source-available under BSL 1.1 today, with an Apache-2.0 change
-license. Commercial use is free for organizations with up to two named human
-users of Boba. Larger commercial use requires a separate commercial license.
+Boba is source-available under BSL 1.1 today, with an Apache-2.0 change license.
+Commercial use is free for organizations with up to two named human users of
+Boba. Larger commercial use requires a separate commercial license.
 
 ## What exists today
 
@@ -32,7 +32,7 @@ users of Boba. Larger commercial use requires a separate commercial license.
 git clone git@github.com:achbogga/boba.git
 cd boba
 ./scripts/bootstrap-dev.sh
-uv run boba plan --spec examples/workloads/etl-gpu-inference.workload.yaml \
+uv run boba plan --spec examples/workloads/spill-heavy.workload.yaml \
   --cluster examples/workloads/local-kind.cluster.yaml
 ```
 
@@ -44,8 +44,15 @@ uv run boba plan --spec examples/workloads/etl-gpu-inference.workload.yaml \
 - `deploy/kuberay`: demo manifests and scripts
 - `docs`: plan, architecture, evidence, benchmark, and contributor docs
 
+## Demo environments
+
+- `uv run boba demo up --profile kind` provisions a local Kind + KubeRay demo
+  path.
+- `uv run boba demo status --profile kind` inspects the local demo.
+- `uv run boba demo up --profile gpu` applies the heterogeneous GPU RayCluster
+  manifest on an existing Kubernetes cluster.
+
 ## Contribution
 
 Start with [CONTRIBUTING.md](CONTRIBUTING.md). Use test-driven development for
 behavior changes and keep commits atomic.
-

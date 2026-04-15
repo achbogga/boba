@@ -1,0 +1,30 @@
+name: spill-heavy-parquet
+workload_class: spill-heavy-parquet
+dataset:
+  format: parquet
+  input_gib: 180
+  average_row_kib: 48
+  file_count: 1400
+  block_size_mib: 512
+stages:
+  - name: read
+    kind: ingest
+    parallelism: 32
+    concurrency: 16
+    cpu_per_worker: 2
+    memory_gib_per_worker: 3
+    working_set_per_worker_gib: 2.5
+  - name: normalize
+    kind: transform
+    parallelism: 24
+    concurrency: 12
+    cpu_per_worker: 2
+    memory_gib_per_worker: 4
+    working_set_per_worker_gib: 3.5
+  - name: join_features
+    kind: join
+    parallelism: 12
+    concurrency: 6
+    cpu_per_worker: 4
+    memory_gib_per_worker: 10
+    working_set_per_worker_gib: 6

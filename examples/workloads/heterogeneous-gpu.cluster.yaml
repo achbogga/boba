@@ -1,0 +1,25 @@
+name: heterogeneous-gpu
+ray_version: 2.54.0
+kuberay_version: 1.5.1
+autoscaling_mode: requested_resources
+object_store_memory_gib: 32
+spill_disk_gib: 250
+node_pools:
+  - name: cpu-general
+    instance_family: m6i
+    available_nodes: 4
+    min_nodes: 0
+    max_nodes: 12
+    cpu_per_node: 16
+    memory_gib_per_node: 64
+    disk_gib_per_node: 200
+    gpu_per_node: 0
+  - name: gpu-l4
+    instance_family: g6
+    available_nodes: 0
+    min_nodes: 0
+    max_nodes: 6
+    cpu_per_node: 32
+    memory_gib_per_node: 128
+    disk_gib_per_node: 500
+    gpu_per_node: 1

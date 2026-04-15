@@ -1,0 +1,48 @@
+name: etl-training-validation-metrics
+workload_class: etl-training-validation-metrics
+dataset:
+  format: parquet
+  input_gib: 320
+  average_row_kib: 96
+  file_count: 3200
+  block_size_mib: 192
+stages:
+  - name: ingest
+    kind: ingest
+    parallelism: 32
+    concurrency: 16
+    cpu_per_worker: 2
+    memory_gib_per_worker: 4
+    working_set_per_worker_gib: 2.5
+  - name: augment
+    kind: transform
+    parallelism: 24
+    concurrency: 12
+    cpu_per_worker: 4
+    memory_gib_per_worker: 8
+    working_set_per_worker_gib: 5
+  - name: train_ingest
+    kind: training
+    accelerator: gpu
+    parallelism: 4
+    concurrency: 4
+    cpu_per_worker: 8
+    memory_gib_per_worker: 24
+    gpu_per_worker: 1
+    working_set_per_worker_gib: 12
+  - name: validate
+    kind: validation
+    accelerator: gpu
+    parallelism: 2
+    concurrency: 2
+    cpu_per_worker: 6
+    memory_gib_per_worker: 16
+    gpu_per_worker: 1
+    working_set_per_worker_gib: 8
+  - name: metrics
+    kind: metrics
+    parallelism: 6
+    concurrency: 3
+    cpu_per_worker: 2
+    memory_gib_per_worker: 3
+    working_set_per_worker_gib: 1.5

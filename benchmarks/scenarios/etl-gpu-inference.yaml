@@ -1,0 +1,8 @@
+name: etl-gpu-inference
+description: Exercise heterogeneous CPU and GPU stage balance recommendations.
+workload_file: ../../examples/workloads/etl-gpu-inference.workload.yaml
+cluster_file: ../../examples/workloads/heterogeneous-gpu.cluster.yaml
+expected_findings:
+  - balance.featurize_to_embed
+notes:
+  - Validates GPU prescale and producer-consumer balance logic.

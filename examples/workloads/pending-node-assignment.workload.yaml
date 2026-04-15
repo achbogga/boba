@@ -1,0 +1,23 @@
+name: pending-node-assignment
+workload_class: pending-node-assignment
+dataset:
+  format: parquet
+  input_gib: 140
+  average_row_kib: 80
+  file_count: 900
+  block_size_mib: 192
+stages:
+  - name: read
+    kind: ingest
+    parallelism: 16
+    concurrency: 8
+    cpu_per_worker: 2
+    memory_gib_per_worker: 3
+    working_set_per_worker_gib: 2
+  - name: join
+    kind: join
+    parallelism: 10
+    concurrency: 10
+    cpu_per_worker: 6
+    memory_gib_per_worker: 96
+    working_set_per_worker_gib: 20
